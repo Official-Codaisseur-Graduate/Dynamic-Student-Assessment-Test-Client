@@ -9,7 +9,7 @@ const getQuestions = question => ({
   payload: question,
 });
 
-export const loadQuestions = id => (dispatch, getState) => {
+export const loadQuestions = () => (dispatch, getState) => {
   // when the state already contains a question, we don't fetch it again
   const state = getState();
   request(`${baseUrl}/question`)
