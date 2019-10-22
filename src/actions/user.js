@@ -1,6 +1,7 @@
 import request from 'superagent';
 const baseUrl = 'http://localhost:4000';
 
+// Student can login with access code
 export const LOGIN = 'LOGIN';
 
 export const login = (email, code) => dispatch => {
