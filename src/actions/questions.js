@@ -1,20 +1,22 @@
+import request from 'superagent';
+const baseUrl = 'http://localhost:4000';
+
 // Fetch test questions
+export const GET_QUESTIONS = 'GET_QUESTIONS';
 
-export const GET_QUESTION = 'GET_QUESTION';
-
-const getQuestion = question => ({
-  type: GET_QUESTION,
+const getQuestions = question => ({
+  type: GET_QUESTIONS,
   payload: question,
 });
 
-export const loadQuestion = id => (dispatch, getState) => {
+export const loadQuestions = id => (dispatch, getState) => {
   // when the state already contains a question, we don't fetch it again
   const state = getState();
-  request(`${baseUrl}/admission-test/question/${id}`)
+  request(`${baseUrl}/question`)
     .then(response => {
       console.log('response.body:', response.body);
 
-      dispatch(getQuestion(response.body));
+      dispatch(getQuestions(response.body));
     })
     .catch(console.error);
 };
