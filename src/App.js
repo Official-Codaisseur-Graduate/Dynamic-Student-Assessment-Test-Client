@@ -8,12 +8,18 @@ import LoginFormContainer from './Components/Login/LoginFormContainer';
 class App extends Component {
   render() {
     return (
+
       <Provider store={store}>
         <div>
           <header></header>
-          <div>
-            <Route path='/login' exact component={LoginFormContainer} />
-          </div>
+            <div>
+          <Route path="/login" exact component={LoginFormContainer} />
+          <Route path="/instructions" exact component={Instructions} />
+          <Route
+            path="/admission-test"
+            exact
+            component={AdmissionTestContainer} />
+        </div>
 
           <footer>
             <br />
@@ -25,6 +31,7 @@ class App extends Component {
           </footer>
         </div>
       </Provider>
+
     );
   }
 }
