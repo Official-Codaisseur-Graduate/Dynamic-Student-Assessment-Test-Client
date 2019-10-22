@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import LoginFormContainer from "./Components/Login/LoginFormContainer";
 import Instructions from "./Components/Instructions/Instructions";
+import AdmissionTestContainer from "./Components/AdmissionTest/AdmissionTestContainer";
 
 // import logo from './images/logo.png';
 
@@ -24,6 +25,11 @@ class App extends Component {
         <div>
           <Route path="/login" exact component={LoginFormContainer} />
           <Route path="/instructions" exact component={Instructions} />
+          <Route
+            path="/admission-test"
+            exact
+            component={AdmissionTestContainer}
+          />
         </div>
 
         <footer>
