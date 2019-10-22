@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import LoginFormContainer from './Components/Login/LoginFormContainer';
+import React, { Component } from "react";
+import Typography from "@material-ui/core/Typography";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import LoginFormContainer from "./Components/Login/LoginFormContainer";
+import Instructions from "./Components/Instructions/Instructions";
+
 // import logo from './images/logo.png';
 
 class App extends Component {
@@ -9,8 +11,8 @@ class App extends Component {
     return (
       <div>
         <header>
-          <Link to='/'>
-            {' '}
+          <Link to="/">
+            {" "}
             {/* <img
               className='logo'
               height='100px'
@@ -20,16 +22,16 @@ class App extends Component {
           </Link>
         </header>
         <div>
-          <LoginFormContainer />
-          <Route path='/login' exact component={LoginFormContainer} />
+          <Route path="/login" exact component={LoginFormContainer} />
+          <Route path="/instructions" exact component={Instructions} />
         </div>
 
         <footer>
           <br />
-          <Typography variant='body2' color='textSecondary' align='center'>
-            {'Copyright © Codaisseur '}
+          <Typography variant="body2" color="textSecondary" align="center">
+            {"Copyright © Codaisseur "}
             {new Date().getFullYear()}
-            {'.'}
+            {"."}
           </Typography>
         </footer>
       </div>
