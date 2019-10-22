@@ -1,12 +1,15 @@
 import React from 'react';
 import LoginForm from './LoginForm';
+import { login } from '../../actions/user';
+import { connect } from 'react-redux';
 
 class LoginFormContainer extends React.Component {
-  state = { email: '', password: '' };
+  state = { email: '', code: '' };
 
   onSubmit = event => {
     event.preventDefault();
     this.props.login(this.state.email, this.state.code);
+    this.props.history.push('/instructions');
   };
 
   onChange = event => {
@@ -26,4 +29,7 @@ class LoginFormContainer extends React.Component {
   }
 }
 
-export default LoginFormContainer;
+export default connect(
+  null,
+  { login }
+)(LoginFormContainer);
