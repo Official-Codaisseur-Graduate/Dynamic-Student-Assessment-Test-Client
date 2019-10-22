@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import TestQuestions from './TestQuestions';
+import TestQuestionsAnswers from './TestQuestionsAnswers';
 // import { getQuestions } from '../../actions/questions';
 
 export default class TestQuestionsContainer extends Component {
@@ -11,7 +11,7 @@ export default class TestQuestionsContainer extends Component {
   render() {
     return (
       <div>
-        <TestQuestions />
+        <TestQuestionsAnswers />
       </div>
     );
   }
