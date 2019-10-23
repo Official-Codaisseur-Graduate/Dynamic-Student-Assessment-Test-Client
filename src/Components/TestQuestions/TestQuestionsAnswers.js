@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import logo from '../../images/logo.png';
+//import logo from '../../images/logo.png';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -28,25 +28,16 @@ export default function TestQuestionAnswers() {
   return (
     <div>
       <Box m={10} align='center'>
-        <header>
+        {/* <header>
           <img
             className='logo'
             height='80px'
             className='center'
             alt='app logo'
             src={logo}></img>
-        </header>
+        </header> */}
 
         <main>
-          <Typography
-            component='h4'
-            variant='h4'
-            align='center'
-            color='textPrimary'
-            gutterBottom>
-            <h5>{'Question: this is the question fetched from DB'}</h5>
-          </Typography>
-
           <FormControl component='fieldset' className={classes.formControl}>
             <FormLabel component='legend'>
               Select the correct answer below:
