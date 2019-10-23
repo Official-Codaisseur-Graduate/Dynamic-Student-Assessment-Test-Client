@@ -19,6 +19,8 @@ export default class TestQuestions extends Component {
               alt='app logo'
               src={logo}></img>
           </header>
+          <br />
+          <br />
 
           <Typography
             component='h6'
@@ -28,13 +30,7 @@ export default class TestQuestions extends Component {
             gutterBottom>
             {!questions && 'Loading...'}
 
-            {questions && (
-              <p>
-                {questions.map(question => (
-                  <p key={question.id}>{question.content}</p>
-                ))}
-              </p>
-            )}
+            {questions && <h2>{questions.content}</h2>}
           </Typography>
         </Box>
       </div>

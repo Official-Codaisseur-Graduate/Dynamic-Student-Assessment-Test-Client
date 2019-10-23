@@ -1,29 +1,20 @@
 import React, { Component, lazy, Suspense } from 'react';
-import { getQuestions } from '../../actions/questions';
+import { getQuestions, getAnswer } from '../../actions/questions';
 import { connect } from 'react-redux';
 import TestQuestionsAnswers from './TestQuestionsAnswers';
 import TestQuestions from './TestQuestions';
 
-// const TestQuestionsLazy = lazy(() => {
-//   return Promise.all([
-//     import('./TestQuestions'),
-//     new Promise(resolve => setTimeout(resolve, 2000)),
-//   ]).then(([moduleExports]) => moduleExports);
-// });
-
 class TestQuestionsContainer extends Component {
   componentDidMount() {
     this.props.getQuestions();
+    this.props.getAnswer();
   }
 
   render() {
     return (
       <div>
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
-        {/* <TestQuestionsLazy question={this.props.question} />; */}
-        {/* </Suspense> */}
         <TestQuestions question={this.props.questions} />
-        <TestQuestionsAnswers />
+        <TestQuestionsAnswers answer={this.props.answers} />
       </div>
     );
   }
@@ -34,10 +25,11 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     questions: state.questions,
+    answers: state.answers,
   };
 }
 
 export default connect(
   mapStateToProps,
-  { getQuestions }
+  { getQuestions, getAnswer }
 )(TestQuestionsContainer);
