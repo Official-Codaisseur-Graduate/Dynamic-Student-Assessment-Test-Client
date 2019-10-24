@@ -1,12 +1,14 @@
-import request from 'superagent';
-const baseUrl = 'http://localhost:4000';
+import request from "superagent";
+import _ from "lodash";
+
+const baseUrl = "http://localhost:4000";
 
 // Fetch test questions
-export const LOAD_QUESTIONS = 'LOAD_QUESTIONS';
+export const LOAD_QUESTIONS = "LOAD_QUESTIONS";
 
 const loadQuestions = question => ({
   type: LOAD_QUESTIONS,
-  payload: question,
+  payload: question
 });
 
 export const getQuestions = id => (dispatch, getState) => {
@@ -14,7 +16,7 @@ export const getQuestions = id => (dispatch, getState) => {
   const state = getState();
   request(`${baseUrl}/question`)
     .then(response => {
-      console.log('response.body:', response.body);
+      console.log("response.body:", response.body);
 
       dispatch(loadQuestions(response.body));
     })
@@ -22,11 +24,11 @@ export const getQuestions = id => (dispatch, getState) => {
 };
 
 // Fetch matching answers per diplayed question
-export const LOAD_ANSWERS = 'LOAD_ANSWERS';
+export const LOAD_ANSWERS = "LOAD_ANSWERS";
 
 const loadAnswers = answer => ({
   type: LOAD_ANSWERS,
-  payload: answer,
+  payload: answer
 });
 
 export const getAnswer = id => (dispatch, getState) => {
@@ -35,9 +37,10 @@ export const getAnswer = id => (dispatch, getState) => {
   const id = 1;
   request(`${baseUrl}/answer/question/${id}`)
     .then(response => {
-      console.log('response.body:', response.body);
+      console.log("response.body:", response.body);
+      const shuffledAnswers = _.shuffle(response.body);
 
-      dispatch(loadAnswers(response.body));
+      dispatch(loadAnswers(shuffledAnswers));
     })
     .catch(console.error);
 };
