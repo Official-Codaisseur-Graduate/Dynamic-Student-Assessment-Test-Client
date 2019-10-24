@@ -26,7 +26,7 @@ export default function TestQuestionAnswers(props) {
     setValue(event.target.value);
   };
 
-  if (!props.answer) {
+  if (!props.answers) {
     return 'loading...';
   } else {
     return (
@@ -47,25 +47,25 @@ export default function TestQuestionAnswers(props) {
                 <FormControlLabel
                   value='option1'
                   control={<Radio color='primary' />}
-                  label={props.answer.content}
+                  label={props.answers[0].content}
                   //labelPlacement='start'
                 />
                 <FormControlLabel
                   value='option2'
                   control={<Radio color='primary' />}
-                  label={props.answer.content}
+                  label={props.answers[1].content}
                   //labelPlacement='start'
                 />
                 <FormControlLabel
                   value='option3'
                   control={<Radio color='primary' />}
-                  label={props.answer.content}
+                  label={props.answers[2].content}
                   //labelPlacement='start'
                 />
                 <FormControlLabel
                   value='option4'
                   control={<Radio color='primary' />}
-                  label={props.answer.content}
+                  label={props.answers[3].content}
                   //labelPlacement='start'
                 />
               </RadioGroup>

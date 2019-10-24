@@ -12,8 +12,7 @@ const loadQuestions = question => ({
 export const getQuestions = id => (dispatch, getState) => {
   // when the state already contains a question, we don't fetch it again
   const state = getState();
-  const index = 1;
-  request(`${baseUrl}/question/${index}`)
+  request(`${baseUrl}/question`)
     .then(response => {
       console.log('response.body:', response.body);
 
@@ -34,7 +33,7 @@ export const getAnswer = id => (dispatch, getState) => {
   // when the state already contains a question, we don't fetch it again
   const state = getState();
   const id = 1;
-  request(`${baseUrl}/answer/${id}`)
+  request(`${baseUrl}/answer/question/${id}`)
     .then(response => {
       console.log('response.body:', response.body);
 

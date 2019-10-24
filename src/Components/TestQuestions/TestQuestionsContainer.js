@@ -14,7 +14,7 @@ class TestQuestionsContainer extends Component {
     return (
       <div>
         <TestQuestions question={this.props.questions} />
-        <TestQuestionsAnswers answer={this.props.answers} />
+        <TestQuestionsAnswers answers={this.props.answers} />
       </div>
     );
   }
