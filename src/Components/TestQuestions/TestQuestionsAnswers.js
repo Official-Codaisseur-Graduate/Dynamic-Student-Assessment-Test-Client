@@ -74,7 +74,12 @@ export default function TestQuestionAnswers(props) {
             <div>
               <br />
               <br />
-              <Button variant='contained' color='primary'>
+              <Button
+                variant='contained'
+                color='primary'
+                onClick={() => {
+                  return console.log('hello');
+                }}>
                 Next question
               </Button>
             </div>
