@@ -5,8 +5,8 @@ import Typography from '@material-ui/core/Typography';
 
 export default class TestQuestions extends Component {
   render() {
-    const questions = this.props.question;
-    console.log('this.props', this.props.question);
+    const question = this.props.question;
+    console.log('this.props', question);
 
     return (
       <div className='questionList'>
@@ -28,9 +28,15 @@ export default class TestQuestions extends Component {
             align='center'
             color='textPrimary'
             gutterBottom>
-            {!questions && 'Loading...'}
+            {!question && 'Loading...'}
 
-            {questions && <h2>{questions[0].content}</h2>}
+            {question && (
+              <div>
+                <h2>{question.questionContent}</h2>
+                {/* Remove level later: for dev purposes only */}
+                <h2>{question.initialLevel}</h2>
+              </div>
+            )}
           </Typography>
         </Box>
       </div>

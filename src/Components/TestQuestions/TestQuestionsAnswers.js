@@ -19,14 +19,14 @@ export default function TestQuestionAnswers(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState();
   // console.log('props.answer', props.answer);
-  // console.log('value', value);
+  console.log('testAnswers component props', props);
 
   const handleChange = event => {
     event.preventDefault();
     setValue(event.target.value);
   };
 
-  if (!props.answers) {
+  if (!props) {
     return 'loading...';
   } else {
     return (
@@ -45,27 +45,27 @@ export default function TestQuestionAnswers(props) {
                 value={value}
                 onChange={handleChange}>
                 <FormControlLabel
-                  value='option1'
+                  value={''}
                   control={<Radio color='primary' />}
-                  label={props.answers[0].content}
+                  label={''}
                   //labelPlacement='start'
                 />
                 <FormControlLabel
-                  value='option2'
+                  value={'1'}
                   control={<Radio color='primary' />}
-                  label={props.answers[1].content}
+                  label={''}
                   //labelPlacement='start'
                 />
                 <FormControlLabel
-                  value='option3'
+                  value={''}
                   control={<Radio color='primary' />}
-                  label={props.answers[2].content}
+                  label={''}
                   //labelPlacement='start'
                 />
                 <FormControlLabel
-                  value='option4'
+                  value={''}
                   control={<Radio color='primary' />}
-                  label={props.answers[3].content}
+                  label={''}
                   //labelPlacement='start'
                 />
               </RadioGroup>
@@ -77,6 +77,7 @@ export default function TestQuestionAnswers(props) {
               <Button
                 variant='contained'
                 color='primary'
+                // go to the next question: to be changed
                 onClick={() => {
                   return console.log('hello');
                 }}>
