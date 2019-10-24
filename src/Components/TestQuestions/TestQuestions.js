@@ -30,7 +30,7 @@ export default class TestQuestions extends Component {
             gutterBottom>
             {!questions && 'Loading...'}
 
-            {questions && <h2>{questions.content}</h2>}
+            {questions && <h2>{questions[0].content}</h2>}
           </Typography>
         </Box>
       </div>
