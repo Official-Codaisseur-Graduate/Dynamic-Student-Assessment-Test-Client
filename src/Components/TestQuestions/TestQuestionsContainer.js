@@ -10,7 +10,6 @@ import Box from '@material-ui/core/Box';
 class TestQuestionsContainer extends Component {
   componentDidMount() {
     this.props.getQuestions();
-    this.props.postUserAnswer();
   }
 
   submitAnswers() {
@@ -20,6 +19,12 @@ class TestQuestionsContainer extends Component {
   handleChange = event => {
     console.log('handle change');
     return event.target.value;
+  };
+
+  submitDataAndLoadNewQuestion = async () => {
+    await this.props.postUserAnswer();
+    this.props.getQuestions();
+    //console.log('hello');
   };
 
   render() {
@@ -36,9 +41,7 @@ class TestQuestionsContainer extends Component {
             color='primary'
             // go to the next question: to be changed
             onClick={() => {
-              this.props.getQuestions();
-              this.props.postUserAnswer();
-              //console.log('hello');
+              this.submitDataAndLoadNewQuestion();
             }}>
             Next question
           </Button>
