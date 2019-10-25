@@ -9,14 +9,12 @@ const userAnswer = answer => ({
   payload: answer,
 });
 
-export const postUserAnswer = () => (dispatch, getState) => {
-  const state = getState();
-
+export const postUserAnswer = () => dispatch => {
   superagent
     .post(`${baseUrl}/userAnswer`)
     // Change the request body
     .send({
-      answerId: '10',
+      answerId: '30',
       categoryId: '2',
       correct: 'true',
       userId: '1',
