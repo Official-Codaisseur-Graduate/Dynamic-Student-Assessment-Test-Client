@@ -1,9 +1,11 @@
-import React, { Component } from "react";
-import { getQuestions } from "../../actions/questions";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { getQuestions } from '../../actions/questions';
+import { connect } from 'react-redux';
 // import TestQuestionsAnswers from "./TestQuestionsAnswers";
-import TestQuestionsAnswers1 from "./TestQuestionsAnswers1";
-import TestQuestions from "./TestQuestions";
+import TestQuestionsAnswers from './TestQuestionsAnswers';
+import TestQuestions from './TestQuestions';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 
 class TestQuestionsContainer extends Component {
   componentDidMount() {
@@ -12,16 +14,31 @@ class TestQuestionsContainer extends Component {
   }
 
   handleChange = event => {
-    console.log("handle change");
+    console.log('handle change');
     return event.target.value;
   };
 
   render() {
     return (
       <div>
-        <TestQuestions question={this.props.question} />
-        {/* <TestQuestionsAnswers answers={this.props.question} /> */}
-        <TestQuestionsAnswers1 answers={this.props.question} />
+        <Box m={10} align='center'>
+          <TestQuestions question={this.props.question} />
+          {/* <TestQuestionsAnswers answers={this.props.question} /> */}
+          <TestQuestionsAnswers answers={this.props.question} />
+
+          <br />
+          <br />
+          <Button
+            variant='contained'
+            color='primary'
+            // go to the next question: to be changed
+            onClick={() => {
+              return this.props.getQuestions();
+              //console.log('hello');
+            }}>
+            Next question
+          </Button>
+        </Box>
       </div>
     );
   }
@@ -30,7 +47,7 @@ class TestQuestionsContainer extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    question: state.question
+    question: state.question,
   };
 }
 
