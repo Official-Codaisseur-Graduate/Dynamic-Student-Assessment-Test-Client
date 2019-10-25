@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getQuestions } from '../../actions/questions';
+import { postUserAnswer } from '../../actions/answers';
 import { connect } from 'react-redux';
 import TestQuestionsAnswers from './TestQuestionsAnswers';
 import TestQuestions from './TestQuestions';
@@ -9,6 +10,11 @@ import Box from '@material-ui/core/Box';
 class TestQuestionsContainer extends Component {
   componentDidMount() {
     this.props.getQuestions();
+    this.props.postUserAnswer();
+  }
+
+  submitAnswers() {
+    this.props.postUserAnswer();
   }
 
   handleChange = event => {
@@ -30,7 +36,8 @@ class TestQuestionsContainer extends Component {
             color='primary'
             // go to the next question: to be changed
             onClick={() => {
-              return this.props.getQuestions();
+              this.props.getQuestions();
+              this.props.postUserAnswer();
               //console.log('hello');
             }}>
             Next question
@@ -45,10 +52,11 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     question: state.question,
+    answer: state.answer,
   };
 }
 
 export default connect(
   mapStateToProps,
-  { getQuestions }
+  { getQuestions, postUserAnswer }
 )(TestQuestionsContainer);

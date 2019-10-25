@@ -1,36 +1,33 @@
-import React, { Component } from "react";
-import logo from "../../images/logo.png";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
+import React, { Component } from 'react';
+import logo from '../../images/logo.png';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 export default class TestQuestions extends Component {
   render() {
     const question = this.props.question;
-    // console.log('this.props', question);
 
     return (
-      <div className="questionList">
-        <Box m={10} align="center">
+      <div className='questionList'>
+        <Box m={10} align='center'>
           <header>
             <img
-              className="logo"
-              height="80px"
-              className="center"
-              alt="app logo"
-              src={logo}
-            ></img>
+              className='logo'
+              height='80px'
+              className='center'
+              alt='app logo'
+              src={logo}></img>
           </header>
           <br />
           <br />
 
           <Typography
-            component="h6"
-            variant="h6"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-          >
-            {!question && "Loading..."}
+            component='h6'
+            variant='h6'
+            align='center'
+            color='textPrimary'
+            gutterBottom>
+            {!question && 'Loading...'}
 
             {question && (
               <div>

@@ -44,6 +44,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function LoginForm(props) {
+  console.log(props.values);
   const classes = useStyles();
   const { onSubmit, onChange, values } = props;
 

@@ -20,7 +20,7 @@ export default class TestQuestionsAnswers extends Component {
     const { answers } = this.props;
     const { selected } = this.state;
     console.log('selected', selected);
-    console.log('answers-----', answers);
+    //console.log('answers-----', answers);
 
     if (!answers) {
       return 'loading...';
@@ -67,19 +67,6 @@ export default class TestQuestionsAnswers extends Component {
                 </RadioGroup>
               </FormControl>
               <br />
-              {/* <div>
-                <br />
-                <br />
-                <Button
-                  variant='contained'
-                  color='primary'
-                  // go to the next question: to be changed
-                  onClick={() => {
-                    return console.log('hello');
-                  }}>
-                  Next question
-                </Button>
-              </div> */}
             </main>
           </Box>
         </div>

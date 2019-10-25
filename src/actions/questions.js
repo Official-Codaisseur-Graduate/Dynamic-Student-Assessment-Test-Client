@@ -23,28 +23,3 @@ export const getQuestions = id => (dispatch, getState) => {
     })
     .catch(console.error);
 };
-
-// // Fetch matching answers for the displayed question
-// export const LOAD_ANSWERS = 'LOAD_ANSWERS';
-
-// const loadAnswers = answer => ({
-//   type: LOAD_ANSWERS,
-//   payload: answer,
-// });
-
-// export const getAnswer = id => (dispatch, getState) => {
-//   // when the state already contains a question, we don't fetch it again
-//   // id is hardcoded until endpoint is fixed, to be changed
-//   const state = getState();
-//   let id = 0;
-//   request(`${baseUrl}/answer/question/${id}`)
-//     .then(response => {
-//       console.log('response.body:', response.body);
-
-//       // Shuffle the array to display answers always in a different order
-//       const shuffledAnswers = _.shuffle(response.body);
-
-//       dispatch(loadAnswers(shuffledAnswers));
-//     })
-//     .catch(console.error);
-// };
