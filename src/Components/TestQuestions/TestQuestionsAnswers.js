@@ -41,25 +41,25 @@ export default class TestQuestionsAnswers extends Component {
                   value={selected}
                   onChange={this.handleChange}>
                   <FormControlLabel
-                    value={answers.answers[0].answerContent}
+                    value={`${answers.answers[0].id}`}
                     control={<Radio color='primary' />}
                     label={answers.answers[0].answerContent}
                     // labelPlacement="start"
                   />
                   <FormControlLabel
-                    value={answers.answers[1].answerContent}
+                    value={`${answers.answers[1].id}`}
                     control={<Radio color='primary' />}
                     label={answers.answers[1].answerContent}
                     // labelPlacement="start"
                   />
                   <FormControlLabel
-                    value={answers.answers[2].answerContent}
+                    value={`${answers.answers[2].id}`}
                     control={<Radio color='primary' />}
                     label={answers.answers[2].answerContent}
                     // labelPlacement="start"
                   />
                   <FormControlLabel
-                    value={answers.answers[3].answerContent}
+                    value={`${answers.answers[3].id}`}
                     control={<Radio color='primary' />}
                     label={answers.answers[3].answerContent}
                     // labelPlacement="start"

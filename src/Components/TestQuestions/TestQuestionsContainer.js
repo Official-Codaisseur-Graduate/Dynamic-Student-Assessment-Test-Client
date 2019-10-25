@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getQuestions } from '../../actions/questions';
 import { connect } from 'react-redux';
-// import TestQuestionsAnswers from "./TestQuestionsAnswers";
 import TestQuestionsAnswers from './TestQuestionsAnswers';
 import TestQuestions from './TestQuestions';
 import Button from '@material-ui/core/Button';
@@ -10,7 +9,6 @@ import Box from '@material-ui/core/Box';
 class TestQuestionsContainer extends Component {
   componentDidMount() {
     this.props.getQuestions();
-    // this.props.getAnswer();
   }
 
   handleChange = event => {
@@ -23,7 +21,6 @@ class TestQuestionsContainer extends Component {
       <div>
         <Box m={10} align='center'>
           <TestQuestions question={this.props.question} />
-          {/* <TestQuestionsAnswers answers={this.props.question} /> */}
           <TestQuestionsAnswers answers={this.props.question} />
 
           <br />
