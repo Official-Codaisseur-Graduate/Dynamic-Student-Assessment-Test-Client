@@ -43,7 +43,7 @@ In the project directory
 - **[Instructions page](http://localhost:3000/instructions)**
 - **[Admission test](http://localhost:3000/admission-test)**
 
-The main structure and components for the test client have been made. Full implementation with the server and admin client is pending. For more detailed overview of what's completed and needs to be done checkout: **[Test Client Project Board](#goals-for-this-project)**
+The main structure and components for the test client have been made. Full implementation with the server and admin client is pending. For more detailed overview of what's completed and needs to be done checkout: **[Test Client Project Board](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Test-Client/projects/1)**
 
 ## Create React App
 
