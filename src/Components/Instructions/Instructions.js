@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import { Grid } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import logo from '../../images/logo.png';
 
+// Loads the instructions for the beginning and end of the test
+// Add logic to switch from start to end instructions
 export default class Instructions extends Component {
   state = {
     startInstructions:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nisi, pulvinar quis erat at, blandit iaculis nisl. In feugiat tincidunt ligula eget condimentum. Praesent nulla odio, iaculis eu tortor quis, rutrum posuere lorem. Proin eget arcu id mi pulvinar imperdiet. Fusce at ante vitae justo maximus accumsan. Suspendisse tempus at purus in molestie. Nunc eu magna condimentum, pulvinar lorem eu, tincidunt dui. Etiam laoreet faucibus nisi, quis viverra lacus sodales ac. Morbi ac dui a odio placerat iaculis. Quisque imperdiet massa quis hendrerit laoreet. Suspendisse molestie viverra dapibus.',
-    endInstructions: 'Thanks for taking the test!',
+    endInstructions: 'Thanks for taking the test! Do this next',
   };
 
   render() {

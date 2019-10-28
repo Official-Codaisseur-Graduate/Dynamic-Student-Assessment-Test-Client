@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <header></header>
           <div>
+            <Route path='/' exact component={LoginFormContainer} />
             <Route path='/login' exact component={LoginFormContainer} />
             <Route path='/instructions' exact component={Instructions} />
             <Route

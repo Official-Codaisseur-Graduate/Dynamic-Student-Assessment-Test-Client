@@ -6,6 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
+// Display answers UI
 export default class TestQuestionsAnswers extends Component {
   state = { selected: '' };
 
@@ -16,8 +17,9 @@ export default class TestQuestionsAnswers extends Component {
   render() {
     const { answers } = this.props;
     const { selected } = this.state;
+
+    // Console.log currently selected answer.id
     console.log('selected', selected);
-    //console.log('answers-----', answers);
 
     if (!answers) {
       return 'loading...';
@@ -41,25 +43,21 @@ export default class TestQuestionsAnswers extends Component {
                     value={`${answers.answers[0].id}`}
                     control={<Radio color='primary' />}
                     label={answers.answers[0].answerContent}
-                    // labelPlacement="start"
                   />
                   <FormControlLabel
                     value={`${answers.answers[1].id}`}
                     control={<Radio color='primary' />}
                     label={answers.answers[1].answerContent}
-                    // labelPlacement="start"
                   />
                   <FormControlLabel
                     value={`${answers.answers[2].id}`}
                     control={<Radio color='primary' />}
                     label={answers.answers[2].answerContent}
-                    // labelPlacement="start"
                   />
                   <FormControlLabel
                     value={`${answers.answers[3].id}`}
                     control={<Radio color='primary' />}
                     label={answers.answers[3].answerContent}
-                    // labelPlacement="start"
                   />
                 </RadioGroup>
               </FormControl>

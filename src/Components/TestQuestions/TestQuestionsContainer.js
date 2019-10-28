@@ -24,7 +24,6 @@ class TestQuestionsContainer extends Component {
   submitDataAndLoadNewQuestion = async () => {
     await this.props.postUserAnswer();
     this.props.getQuestions();
-    //console.log('hello');
   };
 
   render() {
@@ -39,7 +38,7 @@ class TestQuestionsContainer extends Component {
           <Button
             variant='contained'
             color='primary'
-            // go to the next question: to be changed
+            // Sumbit answer and load the next question
             onClick={() => {
               this.submitDataAndLoadNewQuestion();
             }}>
