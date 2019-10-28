@@ -3,6 +3,7 @@ import logo from '../../images/logo.png';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
+// Test questions UI
 export default class TestQuestions extends Component {
   render() {
     const question = this.props.question;
@@ -32,7 +33,7 @@ export default class TestQuestions extends Component {
             {question && (
               <div>
                 <h2>{question.questionContent}</h2>
-                {/* Remove level later: for dev purposes only */}
+                {/* Remove Level later: for dev purposes only */}
                 <h2>{question.initialLevel}</h2>
               </div>
             )}

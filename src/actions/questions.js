@@ -1,9 +1,8 @@
+// Import Superagent and set server URL (in this case, server runs locally)
 import request from 'superagent';
-import _ from 'lodash';
-
 const baseUrl = 'http://localhost:4000';
 
-// Fetch test questions
+// Dispatch action that fetches a question object and the matching answers array
 export const LOAD_QUESTIONS = 'LOAD_QUESTIONS';
 
 const loadQuestions = question => ({
@@ -11,11 +10,12 @@ const loadQuestions = question => ({
   payload: question,
 });
 
-export const getQuestions = id => (dispatch, getState) => {
+// Get request to fetch a test question object from db (includes the matching answers array)
+export const getQuestions = index => (dispatch, getState) => {
   const state = getState();
-  const id = 1;
+  const index = 1;
 
-  request(`${baseUrl}/question/${id}`)
+  request(`${baseUrl}/question/${index}`)
     .then(response => {
       console.log('response.body:', response.body);
 
