@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dynamic Student Assessment - Test Client
 
-## Available Scripts
+## What this project is about
 
-In the project directory, you can run:
+The Dynamic-Student-Assessment is a project for Codaisseur. The aim is to accurately measure the level of Javascript of potential students who sign up for the coding bootcamp. Better assessments of students Javascript level before they start the course, should increase the Bootcamp completion rate.
 
-### `npm start`
+The test should measure students current level and give recommendations based on the results. The questions should change in complexity based on the provided student answers and level.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **[Test Client](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Test-Client)**
+  Focuses on the applicant UI and contains the login page and admissions test.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- **[Admin Client](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Admin-Client)**
+  Portal for the Codaisseur admissions team to manage applicants, scores and tests.
 
-### `npm test`
+- **[Server](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Server)**
+  Contains the end points and database models.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Table of contents:
 
-### `npm run build`
+- **[How to install](#how-to-install)**
+- **[Features built so far and the routes](#features-built-so-far-and-the-routes)**
+- **[Create React App docs](#create-react-app)**
+- **[Contributors](#features-built-so-far-overview-with-pull-requests)**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to install
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Clone the git repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`git clone git@github.com:Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Test-Client.git`
 
-### `npm run eject`
+In the project directory
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Run npm install
+3. Run npm start. The app runs in the development mode on http://localhost:3000 in the browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Checkout the **[Server ReadMe](link to be added)** to install and run the server.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Features built so far and the routes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### 👇 Click links to view the individual pages (install the App first!)👇
 
-## Learn More
+- **[Login page](http://localhost:3000/login)**
+- **[Instructions page](http://localhost:3000/instructions)**
+- **[Admission test](http://localhost:3000/admission-test)**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The main structure and components for the test client have been made. Full implementation with the server and admin client is pending. For more detailed overview of what's completed and needs to be done checkout: **[Test Client Project Board](#goals-for-this-project)**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Create React App
 
-### Code Splitting
+This project was scaffolded using the create-react-app cli.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**[The standard create-react-app docs can be found in here](./create-react-app-docs.md)**
 
-### Analyzing the Bundle Size
+## Contributors
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### Special thanks to:
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- **[Ivana H](https://github.com/future-ruins)**
+- **[Gerson Lynch](https://github.com/gersly)**
+- **[Zeger de Vos](https://github.com/zegenerative)**
+- **[Esther Hayward](https://github.com/eawh02)**
+- **[Lucas Pascholatti](https://github.com/LPascholatti)**
+- **[Andrea Cogo](https://github.com/anderara)**
