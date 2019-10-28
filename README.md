@@ -33,7 +33,7 @@ In the project directory
 2. Run npm install
 3. Run npm start. The app runs in the development mode on http://localhost:3000 in the browser.
 
-4. Checkout the **[Server ReadMe](link to be added)** to install and run the server.
+4. Checkout the **[Server ReadMe](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Server)** to install and run the server.
 
 ## Features built so far and the routes
 
