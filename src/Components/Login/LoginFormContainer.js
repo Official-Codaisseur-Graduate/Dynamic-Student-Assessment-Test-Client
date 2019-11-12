@@ -4,7 +4,7 @@ import { login } from '../../actions/auth';
 import { connect } from 'react-redux';
 
 class LoginFormContainer extends React.Component {
-  state = { email: '', code: '' };
+  state = { email: '', password: '' };
 
   onSubmit = event => {
     event.preventDefault();

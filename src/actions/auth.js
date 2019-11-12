@@ -9,10 +9,10 @@ const baseUrl = 'http://localhost:4000';
 export const LOGIN = 'LOGIN';
 
 
-export const login = (email, code) => (dispatch, getState) => {
+export const login = (email, password) => (dispatch, getState) => {
   request
     .post(`${baseUrl}/login`)
-    .send({ email, code })
+    .send({ email, password })
     .then(response => {
       console.log("What do we get as a response?", response);
       dispatch({ 
