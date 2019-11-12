@@ -12,7 +12,7 @@ const loadQuestions = question => ({
 
 // Get request to fetch a test question object from db (includes the matching answers array)
 export const getQuestions = index => (dispatch, getState) => {
-  const state = getState();
+  // const state = getState();
   const index = 1;
 
   request(`${baseUrl}/question/${index}`)

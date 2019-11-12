@@ -1,4 +1,3 @@
-import store from '../store';
 
 // This middleware console.logs the actions that are being dispatched and your next state for easier debugging
 const loggerMiddleware = store => next => action => {
