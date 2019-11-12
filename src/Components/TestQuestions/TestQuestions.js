@@ -15,7 +15,6 @@ export default class TestQuestions extends Component {
             <img
               className='logo'
               height='80px'
-              className='center'
               alt='app logo'
               src={logo}></img>
           </header>
