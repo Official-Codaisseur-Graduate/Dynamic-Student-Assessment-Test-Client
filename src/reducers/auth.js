@@ -1,9 +1,7 @@
+import { LOGIN } from "../actions/auth"
 
-import { LOGIN } from "../actions/auth";
-
- const initialState = {
-   jwt: null,
-};
+const jwt = localStorage.getItem("jwt")
+const initialState = jwt ? jwt : null;
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
@@ -12,20 +10,20 @@ export default (state = initialState, action = {}) => {
     default:
       return state;
   }
-};
+}
 
 
-// OLD CODE WITH email, userId as well, implemented in initialState
-// const initialState = {
-//   jwt: null,
-//   email: null,
-//   userId: null,
-// };
-// export default function(state = initialState, action = {}) {
+// import { LOGIN } from "../actions/auth";
+
+// const jwt = localStorage.getItem("jwt")
+// const initialState = jwt ? jwt : null;
+
+
+// export default (state = initialState, action = {}) => {
 //   switch (action.type) {
-//     case 'LOGIN':
-//       return { ...state, ...action.payload };
+//     case LOGIN:
+//     return action.payload
 //     default:
 //       return state;
 //   }
-// }
+// };
