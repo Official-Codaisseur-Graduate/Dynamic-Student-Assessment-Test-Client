@@ -1,6 +1,6 @@
 // Import Superagent and set server URL (in this case, server runs locally)
 import request from 'superagent';
-const baseUrl = 'http://localhost:4000';
+export const baseUrl = 'http://localhost:4000';
 
 // Applicants can login with email address and access code provided by Admin: dispatch login action
 

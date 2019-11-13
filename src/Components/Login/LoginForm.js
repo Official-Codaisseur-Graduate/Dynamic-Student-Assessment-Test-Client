@@ -59,6 +59,8 @@ export default function LoginForm(props) {
           <Typography component='h1' variant='h5'>
             Log In
           </Typography>
+          {props.valid ? <p>Please complete the fields below</p>
+            : <p>Email/password must not be empty</p>}
           <form className={classes.form} noValidate onSubmit={onSubmit}>
             <TextField
               variant='outlined'
@@ -78,13 +80,13 @@ export default function LoginForm(props) {
               margin='normal'
               required
               fullWidth
-              name='code'
-              label='Your personal code'
-              type='code'
-              id='code'
-              autoComplete='current-code'
+              name='password'
+              label='Your personal password'
+              type='password'
+              id='password'
+              autoComplete='current-password'
               onChange={onChange}
-              value={values.code}
+              value={values.password}
             />
             <Button
               type='submit'

@@ -2,42 +2,59 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import { login } from '../../actions/auth';
 import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
 
 class LoginFormContainer extends React.Component {
-  state = { email: '', password: '' };
+  state = { 
+      email: '', 
+      password: '',
+      isValid: true
+      }
 
-  onSubmit = event => {
-    event.preventDefault();
-    this.props.login(this.state.email, this.state.code);
-    this.props.history.push('/instructions');
-    //  this old code, will redirect event though the onSubmit is wrong (even though either email or code is not correct, fix this to only work when email + code is correct
-    /// use redirect instead in render()???
-  };
+      onSubmit = (event) => {
+      event.preventDefault()
+      if(this.state.email === ''||this.state.password ===''){
+          //error message if any of the fields are empty
+        this.setState({isValid: false})
+        }else{
+          this.props.login(this.state.email, this.state.password);
+          this.props.history.push('/instructions');
+        }
+    }
+  
 
   onChange = event => {
+    this.setState({isValid: true})
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
 
+
   render() {
-    return (
+    // return this.props.jwt ? (
+    //   // If we have a jw-token, redirect to instructions
+    //   <Redirect to="/instructions" />
+    // ) : (
+      return (
       <LoginForm
         onSubmit={this.onSubmit}
         onChange={this.onChange}
         values={this.state}
+        valid={this.state.isValid}
       />
     );
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     token: state.auth
-//   };
-// };
+function mapStateToProps (state) {
+    console.log("mstp", state)
+    return {
+        token: state.auth
+    }
+}
 
 export default connect(
-  null,
+  mapStateToProps,
   { login }
 )(LoginFormContainer);
