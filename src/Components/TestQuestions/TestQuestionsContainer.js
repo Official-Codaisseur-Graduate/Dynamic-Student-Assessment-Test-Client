@@ -6,6 +6,7 @@ import TestQuestionsAnswers from './TestQuestionsAnswers';
 import TestQuestions from './TestQuestions';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+import ProgressMobileStepper from './ProgressMobileStepper'
 
 class TestQuestionsContainer extends Component {
   componentDidMount() {
@@ -32,18 +33,11 @@ class TestQuestionsContainer extends Component {
         <Box m={10} align='center'>
           <TestQuestions question={this.props.question} />
           <TestQuestionsAnswers answers={this.props.question} />
-
           <br />
           <br />
-          <Button
-            variant='contained'
-            color='primary'
-            // Sumbit answer and load the next question
-            onClick={() => {
-              this.submitDataAndLoadNewQuestion();
-            }}>
-            Next question
-          </Button>
+          <ProgressMobileStepper
+          handleNext={() => 
+          this.submitDataAndLoadNewQuestion()}/>
         </Box>
       </div>
     );
@@ -62,3 +56,13 @@ export default connect(
   mapStateToProps,
   { getQuestions, postUserAnswer }
 )(TestQuestionsContainer);
+
+
+       //  <Button  variant='contained'
+          //   color='primary'
+          //   // Sumbit answer and load the next question
+          //   onClick={() => {
+          //     this.submitDataAndLoadNewQuestion();
+          //   }}>
+          //   Next question
+          // </Button>
