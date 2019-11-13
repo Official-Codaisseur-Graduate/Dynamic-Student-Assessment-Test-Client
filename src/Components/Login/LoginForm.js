@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 // Login Form UI: authentication not implemented
 const useStyles = makeStyles(theme => ({
   root: {
@@ -59,7 +60,7 @@ export default function LoginForm(props) {
           <Typography component='h1' variant='h5'>
             Log In
           </Typography>
-          {props.valid ? <p>Please complete the fields below</p>
+          {props.valid ? <p>Please login to get to the Admissions Test</p>
             : <p>Email/password must not be empty</p>}
           <form className={classes.form} noValidate onSubmit={onSubmit}>
             <TextField
@@ -81,7 +82,7 @@ export default function LoginForm(props) {
               required
               fullWidth
               name='password'
-              label='Your personal password'
+              label='Password'
               type='password'
               id='password'
               autoComplete='current-password'

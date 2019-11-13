@@ -28,12 +28,12 @@ export default function ProgressMobileStepper() {
   return (
     <MobileStepper
       variant="progress"
-      steps={6}
+      steps={10}
       position="static"
       activeStep={activeStep}
       className={classes.root}
       nextButton={
-        <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
+        <Button size="small" onClick={handleNext} disabled={activeStep === 9}>
           Next
           {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
         </Button>

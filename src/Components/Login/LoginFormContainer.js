@@ -3,6 +3,7 @@ import LoginForm from './LoginForm';
 import { login } from '../../actions/auth';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
+import logo from '../../images/codaisseur-logo-long.png';
 
 class LoginFormContainer extends React.Component {
   state = { 
@@ -37,13 +38,21 @@ class LoginFormContainer extends React.Component {
     //   <Redirect to="/instructions" />
     // ) : (
       return (
+        <header>
+        <img
+          className='logo'
+          height='80px'
+          align="middle"
+          alt='app logo'
+          src={logo}>
+          </img>
       <LoginForm
         onSubmit={this.onSubmit}
         onChange={this.onChange}
         values={this.state}
-        valid={this.state.isValid}
-      />
-    );
+        valid={this.state.isValid}/>
+        </header>
+    )
   }
 }
 
