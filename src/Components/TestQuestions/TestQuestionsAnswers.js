@@ -30,7 +30,7 @@ export default class TestQuestionsAnswers extends Component {
             <main>
               <FormControl component='fieldset' className={''}>
                 <FormLabel component='legend'>
-                  Select the correct answer below:
+                  Select the correct answer below
                 </FormLabel>
                 <br />
                 <RadioGroup

@@ -2,22 +2,23 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import { login } from '../../actions/auth';
 import { connect } from 'react-redux';
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
+import logo from '../../images/codaisseur-logo-long.png';
 
 class LoginFormContainer extends React.Component {
   state = { 
       email: '', 
-      password: '',
+      code: '',
       isValid: true
       }
 
       onSubmit = (event) => {
       event.preventDefault()
-      if(this.state.email === ''||this.state.password ===''){
+      if(this.state.email === ''||this.state.code ===''){
           //error message if any of the fields are empty
         this.setState({isValid: false})
         }else{
-          this.props.login(this.state.email, this.state.password);
+          this.props.login(this.state.email, this.state.code);
           this.props.history.push('/instructions');
         }
     }
@@ -37,20 +38,28 @@ class LoginFormContainer extends React.Component {
     //   <Redirect to="/instructions" />
     // ) : (
       return (
+        <header>
+        <img
+          className='logo'
+          height='80px'
+          align="middle"
+          alt='app logo'
+          src={logo}>
+          </img>
       <LoginForm
         onSubmit={this.onSubmit}
         onChange={this.onChange}
         values={this.state}
-        valid={this.state.isValid}
-      />
-    );
+        valid={this.state.isValid}/>
+        </header>
+    )
   }
 }
 
 function mapStateToProps (state) {
     console.log("mstp", state)
     return {
-        token: state.auth
+        // jwt: state.auth
     }
 }
 

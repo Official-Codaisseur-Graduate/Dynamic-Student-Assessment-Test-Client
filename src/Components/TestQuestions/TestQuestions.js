@@ -32,8 +32,6 @@ export default class TestQuestions extends Component {
             {question && (
               <div>
                 <h2>{question.questionContent}</h2>
-                {/* Remove Level later: for dev purposes only */}
-                <h2>{question.initialLevel}</h2>
               </div>
             )}
           </Typography>

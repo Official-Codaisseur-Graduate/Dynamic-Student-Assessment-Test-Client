@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import logo from '../../images/logo.png';
+import logo from '../../images/codaisseur-logo-long.png';
+// import TextField from '@material-ui/core/TextField';
+// import { positions } from '@material-ui/system';
+// import { makeStyles } from '@material-ui/core/styles';
 
 // Loads the instructions for the beginning and end of the test
-// Add logic to switch from start to end instructions
+
+
 export default class Instructions extends Component {
   state = {
     startInstructions:
@@ -21,8 +25,10 @@ export default class Instructions extends Component {
             <img
               className='logo'
               height='80px'
+              align="middle"
               alt='app logo'
-              src={logo}></img>
+              src={logo}>
+              </img>
           </header>
           <Typography
             component='h4'
@@ -30,12 +36,11 @@ export default class Instructions extends Component {
             align='center'
             color='textPrimary'
             gutterBottom>
-            <h5>{'Test instructions'}</h5>
-            <h6>
-              {
-                'Read the instructions below: when you are ready click on the button to start the test'
+            <p>
+              <i>{
+                'Read the instructions below. When you feel ready, click on the button below to start the test.'
               }
-            </h6>
+              </i></p>
           </Typography>
         </Box>
         <Box m={10}>
@@ -49,13 +54,15 @@ export default class Instructions extends Component {
           </Typography>
         </Box>
         <div>
-          <Box m={10} align='center'>
-            <Button variant='contained' color='primary' href='/admission-test'>
-              Start test
-            </Button>
-          </Box>
+        <Box m={10} align='center'>
+          <Button variant='contained' color='primary' href='/admission-test'>
+            Start test
+          </Button>
+        </Box>
+            <Box mt={5}></Box>
         </div>
       </div>
     );
   }
 }
+
