@@ -1,70 +1,86 @@
-import React, { Component } from 'react';
-import { getQuestions } from '../../actions/questions';
-import { postUserAnswer } from '../../actions/answers';
-import { connect } from 'react-redux';
-import TestQuestionsAnswers from './TestQuestionsAnswers';
-import TestQuestions from './TestQuestions';
+import React, { Component } from "react"
+import { response } from "../../actions/questions"
+import { connect } from "react-redux"
+import TestQuestionsAnswers from "./TestQuestionsAnswers"
+import TestQuestions from "./TestQuestions"
 // import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
-import ProgressMobileStepper from './ProgressMobileStepper'
+import Box from "@material-ui/core/Box"
+import ProgressMobileStepper from "./ProgressMobileStepper"
 
 class TestQuestionsContainer extends Component {
-  componentDidMount() {
-    this.props.getQuestions();
-  }
+	state = {
+		testId: 1,
+		answerId: null,
+		activeStep: 0
+	}
+	componentDidMount() {
+		// now we just hardcode testId for testing
+		// for first question, answerId is null
+		this.props.response({ testId: 1, answerId: null })
+	}
 
-  submitAnswers() {
-    this.props.postUserAnswer();
-  }
+	submitAnswers() {
+		this.props.response(this.state)
+	}
 
-  handleChange = event => {
-    console.log('handle change');
-    return event.target.value;
-  };
+	handleChange = event => {
+		this.setState({ answerId: event.target.value })
+		console.log("state", this.state)
+	}
+	handleNext = () => {
+		this.setState({ activeStep: this.state.activeStep + 1 })
+		const { testId, answerId } = this.state
+		this.props.response({ testId, answerId })
+		console.log("next")
+	}
+	handleBack = () => {
+		this.setState({ activeStep: this.state.activeStep - 1 })
+		console.log("back")
+	}
 
-  submitDataAndLoadNewQuestion = async () => {
-    await this.props.postUserAnswer();
-    this.props.getQuestions();
-  };
+	// submitDataAndLoadNewQuestion = async () => {
+	//   await this.props.postUserAnswer();
+	//   this.props.getQuestions();
+	// };
 
-  render() {
-    return (
-      <div>
-        <Box m={10} align='center'>
-          <TestQuestions question={this.props.question} />
-          <TestQuestionsAnswers answers={this.props.question} />
-          <br />
-          <br />
-          <ProgressMobileStepper
-          nextButton={this.submitDataAndLoadNewQuestion()}
-          // backButton={}
-          /// add an action that takes care of loading the previous action --> make a router.get for this??
-          />
-        </Box>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<Box m={10} align="center">
+					<TestQuestions question={this.props.question} />
+					<TestQuestionsAnswers
+						answers={this.props.question}
+						handleChange={this.handleChange}
+						selected={this.state.answerId}
+					/>
+					<br />
+					<br />
+					<ProgressMobileStepper
+						handleNext={this.handleNext}
+						handleBack={this.handleBack}
+						activeStep={this.state.activeStep}
+					/>
+				</Box>
+			</div>
+		)
+	}
 }
 
 function mapStateToProps(state) {
-  return {
-    user: state.user,
-    question: state.question,
-    answer: state.answer,
-  };
+	return {
+		user: state.user,
+		question: state.question,
+		answer: state.answer
+	}
 }
 
-export default connect(
-  mapStateToProps,
-  { getQuestions, postUserAnswer }
-)(TestQuestionsContainer);
+export default connect(mapStateToProps, { response })(TestQuestionsContainer)
 
-
-       //  <Button  variant='contained'
-          //   color='primary'
-          //   // Sumbit answer and load the next question
-          //   onClick={() => {
-          //     this.submitDataAndLoadNewQuestion();
-          //   }}>
-          //   Next question
-          // </Button>
+//  <Button  variant='contained'
+//   color='primary'
+//   // Sumbit answer and load the next question
+//   onClick={() => {
+//     this.submitDataAndLoadNewQuestion();
+//   }}>
+//   Next question
+// </Button>
