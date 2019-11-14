@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import LoginFormContainer from './Components/Login/LoginFormContainer';
 import Instructions from './Components/Instructions/Instructions';
 import TestQuestionsContainer from './Components/TestQuestions/TestQuestionsContainer';
+// import NavbarContainer from './Components/Navbar/NavbarContainer'
 
 class App extends Component {
   render() {
@@ -38,3 +39,10 @@ class App extends Component {
 }
 
 export default App;
+
+
+        // <div>
+        // <NavbarContainer
+        //  />
+        //  <Route path='/instructions' exact component={Instructions} />
+        // </div>

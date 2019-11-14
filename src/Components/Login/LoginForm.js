@@ -61,7 +61,7 @@ export default function LoginForm(props) {
             Log In
           </Typography>
           {props.valid ? <p>Please login to get to the Admissions Test</p>
-            : <p>Email/password must not be empty</p>}
+            : <p>Email/code must not be empty</p>}
           <form className={classes.form} noValidate onSubmit={onSubmit}>
             <TextField
               variant='outlined'
@@ -81,13 +81,13 @@ export default function LoginForm(props) {
               margin='normal'
               required
               fullWidth
-              name='password'
-              label='Password'
-              type='password'
-              id='password'
-              autoComplete='current-password'
+              name='code'
+              label='Your personal code'
+              type='code'
+              id='code'
+              autoComplete='current-code'
               onChange={onChange}
-              value={values.password}
+              value={values.code}
             />
             <Button
               type='submit'

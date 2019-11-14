@@ -3,7 +3,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import logo from '../../images/codaisseur-logo-long.png';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 // import { positions } from '@material-ui/system';
 // import { makeStyles } from '@material-ui/core/styles';
 
@@ -38,7 +38,7 @@ export default class Instructions extends Component {
             gutterBottom>
             <p>
               <i>{
-                'Read the instructions below. When you feel ready, use the personal code given to you and start the test.'
+                'Read the instructions below. When you feel ready, click on the button below to start the test.'
               }
               </i></p>
           </Typography>
@@ -54,25 +54,11 @@ export default class Instructions extends Component {
           </Typography>
         </Box>
         <div>
-          <TextField
-          variant='outlined'
-          margin='normal'
-          required
-          fullWidth
-          name='code'
-          label='Your personal code'
-          type='code'
-          id='code'
-          autoComplete='current-code'
-          />
-          <Button 
-          type="submit"
-          fullWidth
-          variant='contained' 
-          color='primary' 
-          href='/admission-test'>
-              Start test
-            </Button>
+        <Box m={10} align='center'>
+          <Button variant='contained' color='primary' href='/admission-test'>
+            Start test
+          </Button>
+        </Box>
             <Box mt={5}></Box>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { postUserAnswer } from '../../actions/answers';
 import { connect } from 'react-redux';
 import TestQuestionsAnswers from './TestQuestionsAnswers';
 import TestQuestions from './TestQuestions';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import ProgressMobileStepper from './ProgressMobileStepper'
 
@@ -36,8 +36,10 @@ class TestQuestionsContainer extends Component {
           <br />
           <br />
           <ProgressMobileStepper
-          handleNext={() => 
-          this.submitDataAndLoadNewQuestion()}/>
+          nextButton={this.submitDataAndLoadNewQuestion()}
+          // backButton={}
+          /// add an action that takes care of loading the previous action --> make a router.get for this??
+          />
         </Box>
       </div>
     );
