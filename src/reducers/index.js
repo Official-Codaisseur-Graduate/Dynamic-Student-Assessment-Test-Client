@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import auth from '../reducers/auth';
-import question from '../reducers/question';
-import answer from '../reducers/answer';
+import auth from './auth';
+import question from './question';
+import answer from './answer';
+import test from './test'
 
 export default combineReducers({
   auth,
   question,
   answer,
+  test
 });

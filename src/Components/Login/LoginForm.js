@@ -61,9 +61,9 @@ export default function LoginForm(props) {
             Log In
           </Typography>
           {props.valid ? <p>Please login to get to the Admissions Test</p>
-            : <p>Email/code must not be empty</p>}
+            : <p>code must not be empty</p>}
           <form className={classes.form} noValidate onSubmit={onSubmit}>
-            <TextField
+            {/* <TextField
               variant='outlined'
               margin='normal'
               required
@@ -75,7 +75,7 @@ export default function LoginForm(props) {
               autoFocus
               onChange={onChange}
               value={values.email}
-            />
+            /> */}
             <TextField
               variant='outlined'
               margin='normal'
