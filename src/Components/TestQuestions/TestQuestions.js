@@ -31,7 +31,7 @@ export default class TestQuestions extends Component {
 
             {question && (
               <div>
-                <h2>{question.questionContent}</h2>
+                <div className="h2-title"><h2>{question.questionContent}</h2></div>
               </div>
             )}
           </Typography>
