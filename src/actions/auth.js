@@ -6,18 +6,17 @@ export const baseUrl = 'http://localhost:4000';
 
 // Authentication IN PROGRESS - changed payload, see old req 
 /// commented out in this file
-export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCES = 'LOGIN_SUCCES';
 
 
-export const login = (email, code) => (dispatch, getState) => {
+export const login = (code) => (dispatch, getState) => {
   request
-    .post(`${baseUrl}/login`)
-    .send({ email, code })
+    .get(`${baseUrl}/test/${code}`)
     .then(response => {
       console.log("What do we get as a response?", response);
       dispatch({ 
-        type: LOGIN,
-        payload: response.body.jwt });
+        type: LOGIN_SUCCES,
+        payload: response.body });
     })
     .catch(console.error);
 };
