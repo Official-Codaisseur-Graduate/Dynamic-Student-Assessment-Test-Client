@@ -1,25 +1,17 @@
-// Import Superagent and set server URL (in this case, server runs locally)
-import request from 'superagent';
-const baseUrl = 'http://localhost:4000';
+import request from "superagent"
+import { baseUrl } from "../constants"
 
-// Dispatch action that fetches a question object and the matching answers array
-export const LOAD_QUESTIONS = 'LOAD_QUESTIONS';
+export const QUESTION_LOADED = "QUESTION_LOADED"
+const questionloaded = question => ({
+	type: QUESTION_LOADED,
+	payload: question
+})
 
-const loadQuestions = question => ({
-  type: LOAD_QUESTIONS,
-  payload: question,
-});
-
-// Get request to fetch a test question object from db (includes the matching answers array)
-export const getQuestions = index => (dispatch, getState) => {
-  // const state = getState();
-  const index = 1;
-
-  request(`${baseUrl}/question/${index}`)
-    .then(response => {
-      console.log('response.body:', response.body);
-
-      dispatch(loadQuestions(response.body));
-    })
-    .catch(console.error);
-};
+export const response = ({ testId, answerId }) => (dispatch, getState) => {
+	request
+		.post(`${baseUrl}/response?testId=${testId}&answerId=${answerId}`)
+		.then(response => {
+			dispatch(questionloaded(response.body))
+		})
+		.catch(console.error)
+}
