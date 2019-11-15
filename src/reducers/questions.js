@@ -1,8 +1,8 @@
 import { QUESTION_LOADED } from "../actions/questions";
-export default function(state = null, action = {}) {
+export default function(state = [], action = {}) {
   switch (action.type) {
     case QUESTION_LOADED:
-      return action.payload;
+      return [...state,action.payload];
 
     default:
       return state;
