@@ -56,9 +56,17 @@ This project was scaffolded using the create-react-app cli.
 
 #### Special thanks to:
 
+Class 30: 
 - **[Ivana H](https://github.com/future-ruins)**
 - **[Gerson Lynch](https://github.com/gersly)**
 - **[Zeger de Vos](https://github.com/zegenerative)**
 - **[Esther Hayward](https://github.com/eawh02)**
 - **[Lucas Pascholatti](https://github.com/LPascholatti)**
 - **[Andrea Cogo](https://github.com/anderara)**
+
+Class 31: 
+- **[KumKum Singh](https://github.com/kumkumsingh)**
+- **[Yu Qi](https://github.com/qiyu1987)**
+- **[Stijn Blokker](https://github.com/stijnblokker)**
+- **[Evelina Wahlström](https://github.com/evelinawahlstrom)**
+- **|Sushmita BS](https://github.com/sushmitha-b-s)**
