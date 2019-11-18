@@ -52,11 +52,25 @@ This project was scaffolded using the create-react-app cli.
 
 **[The standard create-react-app docs can be found in here](./create-react-app-docs.md)**
 
+### What is working:
+
+**Login**
+- An interviewee can login with the code that is generated from the admin client (see the /students endpoint in that repo: here --> **[Admin Client](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Admin-Client)**
+
+**Instructions**
+- After loging in, the interviewee get redirected to /instructions where a default instructions (should be replaced with the real instructions at one point). Here the interviewee can click the button "start test" to get to the test.
+
+**Admission-test**
+- At /admission-test, the interviewee get the questions, choosing one out of four options and then clicking next to get to the next question
+- Question loaded (redux store)
+  - If an interviewee answers the question correct --> the initialLevel (seen in the action payload OR in the state 
+    question: initalLevel) will go up a level (from 0-1-2). 
+- In the payload you can see the answers (an array at the bottom of the payload), here you see which one is correct/incorrect.
+
 ## To do:
-Questions
 
-If an interviewee wants to go back and see his previous question,Back link is not working.
-
+**Admission-test**
+- If an interviewee wants to go back and see his/her previous question, the back button is not working. Need to implement this with an action and a reducer... 
 
 ## Contributors
 
