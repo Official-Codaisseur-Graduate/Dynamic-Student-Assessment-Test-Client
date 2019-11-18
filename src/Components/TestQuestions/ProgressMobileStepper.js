@@ -15,15 +15,7 @@ const useStyles = makeStyles({
 export default function ProgressMobileStepper(props) {
 	const classes = useStyles()
 	const theme = useTheme()
-	// const [activeStep, setActiveStep] = React.useState(0)
 	const activeStep = props.activeStep
-	// const handleNext = () => {
-	// 	setActiveStep(prevActiveStep => prevActiveStep + 1)
-	// }
-
-	// const handleBack = () => {
-	// 	setActiveStep(prevActiveStep => prevActiveStep - 1)
-	// }
 
 	return (
 		<MobileStepper
@@ -46,6 +38,10 @@ export default function ProgressMobileStepper(props) {
 					)}
 				</Button>
 			}
+			
+			///backButton is not working 
+			// --> needs an action implemented to handle this 
+			/// See TestQuestionContainer.js for handleBack
 			backButton={
 				<Button
 					size="small"

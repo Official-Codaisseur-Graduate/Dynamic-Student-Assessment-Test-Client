@@ -1,9 +1,8 @@
 import React, { Component } from "react"
-import { response } from "../../actions/questions"
+import { response } from "../../actions/question"
 import { connect } from "react-redux"
 import TestQuestionsAnswers from "./TestQuestionsAnswers"
 import TestQuestions from "./TestQuestions"
-// import Button from '@material-ui/core/Button';
 import Box from "@material-ui/core/Box"
 import ProgressMobileStepper from "./ProgressMobileStepper"
 
@@ -33,15 +32,13 @@ class TestQuestionsContainer extends Component {
 		this.props.response({ testId, answerId })
 		console.log("next")
 	}
+	// handleBack is not working, 
+	// the button is there though --> see ProgressMobileStepper.js
 	handleBack = () => {
 		this.setState({ activeStep: this.state.activeStep - 1 })
 		console.log("back")
 	}
 
-	// submitDataAndLoadNewQuestion = async () => {
-	//   await this.props.postUserAnswer();
-	//   this.props.getQuestions();
-	// };
 
 	render() {
 		return (
@@ -75,12 +72,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { response })(TestQuestionsContainer)
-
-//  <Button  variant='contained'
-//   color='primary'
-//   // Sumbit answer and load the next question
-//   onClick={() => {
-//     this.submitDataAndLoadNewQuestion();
-//   }}>
-//   Next question
-// </Button>
