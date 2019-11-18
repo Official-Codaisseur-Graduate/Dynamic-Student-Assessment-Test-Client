@@ -52,6 +52,12 @@ This project was scaffolded using the create-react-app cli.
 
 **[The standard create-react-app docs can be found in here](./create-react-app-docs.md)**
 
+## To do:
+Questions
+
+If an interviewee wants to go back and see his previous question,Back link is not working.
+
+
 ## Contributors
 
 #### Special thanks to:
