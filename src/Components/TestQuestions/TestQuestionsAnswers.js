@@ -10,16 +10,8 @@ import FormLabel from "@material-ui/core/FormLabel"
 export default class TestQuestionsAnswers extends Component {
 	state = { selected: "" }
 
-	// handleChange = event => {
-	//   this.setState({ selected: event.target.value });
-	// };
-
 	render() {
 		const { answers } = this.props
-		// const { selected } = this.state
-
-		// // Console.log currently selected answer.id
-		// console.log("selected", selected)
 
 		if (!answers) {
 			return "loading..."

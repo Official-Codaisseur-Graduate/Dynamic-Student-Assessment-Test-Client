@@ -14,7 +14,6 @@ class LoginFormContainer extends React.Component {
   onSubmit = (event) => {
     event.preventDefault()
     if (this.state.code === '') {
-      //error message if any of the fields are empty
       this.setState({ isValid: false })
     } else {
       this.props.login(this.state.code);
@@ -31,7 +30,7 @@ class LoginFormContainer extends React.Component {
 
 
   render() {
-    if (this.props.test !== null) {
+    if (this.props.auth !== null) {
       return <Redirect to="/instructions" />
     }
     return (
@@ -54,10 +53,8 @@ class LoginFormContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  // console.log("mstp", state)
   return {
-    test: state.test
-    // jwt: state.auth
+    auth: state.auth
   }
 }
 

@@ -3,11 +3,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import logo from '../../images/codaisseur-logo-long.png';
-// import TextField from '@material-ui/core/TextField';
-// import { positions } from '@material-ui/system';
-// import { makeStyles } from '@material-ui/core/styles';
 
-// Loads the instructions for the beginning and end of the test
 
 
 export default class Instructions extends Component {
