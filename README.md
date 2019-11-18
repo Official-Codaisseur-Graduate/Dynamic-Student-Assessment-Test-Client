@@ -40,7 +40,7 @@ The test should measure students current level and give recommendations based on
 
 #### 👇 Click links to view the individual pages (install the App first!)👇
 
-- **[Login page](http://localhost:3000/login)**
+- **[Login page](http://localhost:3000)**
 - **[Instructions page](http://localhost:3000/instructions)**
 - **[Admission test](http://localhost:3000/admission-test)**
 
@@ -62,3 +62,11 @@ This project was scaffolded using the create-react-app cli.
 - **[Esther Hayward](https://github.com/eawh02)**
 - **[Lucas Pascholatti](https://github.com/LPascholatti)**
 - **[Andrea Cogo](https://github.com/anderara)**
+
+Class 31:
+
+Yu Qi
+KumKum Singh
+Stijn Blokker
+Evelina Wahlström
+Sushmita BS
