@@ -69,4 +69,4 @@ Class 31:
 - **[Yu Qi](https://github.com/qiyu1987)**
 - **[Stijn Blokker](https://github.com/stijnblokker)**
 - **[Evelina Wahlström](https://github.com/evelinawahlstrom)**
-- **|Sushmita BS](https://github.com/sushmitha-b-s)**
+- **[Sushmita BS](https://github.com/sushmitha-b-s)**
