@@ -28,12 +28,13 @@ The test should measure students current level and give recommendations based on
 
 `git clone git@github.com:Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Test-Client.git`
 
-In the project directory
+2. cd into the folder Dynamic-Student-Assessment-Test-Client
 
-2. Run npm install
-3. Run npm start. The app runs in the development mode on http://localhost:3000 in the browser.
+3. Run npm install and Before launching the app( with npm start ), please make sure that the server side is up and running.
 
-4. Checkout the **[Server ReadMe](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Server)** to install and run the server.
+4. Run npm start. The app runs in the development mode on http://localhost:3000 in the browser.
+
+5. Checkout the **[Server ReadMe](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Server)** to install and run the server.
 
 ## Features built so far and the routes
 
