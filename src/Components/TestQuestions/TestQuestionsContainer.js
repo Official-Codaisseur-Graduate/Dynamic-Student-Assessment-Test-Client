@@ -7,22 +7,19 @@ import Box from "@material-ui/core/Box";
 import ProgressMobileStepper from "./ProgressMobileStepper";
 import store from "../../store";
 import logo from "../../images/logo.png";
+import LoginFormContainer from "../Login/LoginFormContainer";
 
 class TestQuestionsContainer extends Component {
   state = {
-    testId: 1,
+    testId: this.props.auth ? this.props.auth.id : null,
     answerId: null,
     activeStep: 0
   };
-  componentDidMount() {
-    const testId = store.getState().auth.id;
-    this.setState({
-      testId: testId
-    });
-    // now we just hardcode testId for testing
+  componentDidMount = () => {
+    this.props.response({ testId: this.state.testId, answerId: null });
+
     // for first question, answerId is null
-    this.props.response({ testId: 1, answerId: null });
-  }
+  };
 
   submitAnswers() {
     this.props.response(this.state);
@@ -67,6 +64,7 @@ class TestQuestionsContainer extends Component {
         </div>
       );
     } else {
+    if (this.state.testId)
       return (
         <div>
           <Box m={10} align="center">
@@ -87,6 +85,7 @@ class TestQuestionsContainer extends Component {
         </div>
       );
     }
+    else return <LoginFormContainer />;
   }
 }
 
@@ -94,7 +93,8 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     question: state.question,
-    answer: state.answer
+    answer: state.answer,
+    auth: state.auth
   };
 }
 
