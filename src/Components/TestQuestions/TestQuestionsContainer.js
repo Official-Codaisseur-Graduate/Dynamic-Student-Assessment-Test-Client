@@ -5,6 +5,8 @@ import TestQuestionsAnswers from "./TestQuestionsAnswers";
 import TestQuestions from "./TestQuestions";
 import Box from "@material-ui/core/Box";
 import ProgressMobileStepper from "./ProgressMobileStepper";
+import store from "../../store";
+import logo from "../../images/logo.png";
 import LoginFormContainer from "../Login/LoginFormContainer";
 
 class TestQuestionsContainer extends Component {
@@ -41,6 +43,27 @@ class TestQuestionsContainer extends Component {
   };
 
   render() {
+    const { activeStep } = this.state;
+
+    if (activeStep === 5) {
+      return (
+        <div>
+          <Box m={10} align="center">
+            <header>
+              <img
+                className="logo"
+                height="80px"
+                alt="app logo"
+                src={logo}
+              ></img>
+            </header>
+            <br />
+            <br />
+            You're done! Thanks for taking the test
+          </Box>
+        </div>
+      );
+    } else {
     if (this.state.testId)
       return (
         <div>
@@ -61,6 +84,7 @@ class TestQuestionsContainer extends Component {
           </Box>
         </div>
       );
+    }
     else return <LoginFormContainer />;
   }
 }
