@@ -5,6 +5,7 @@ import TestQuestionsAnswers from "./TestQuestionsAnswers";
 import TestQuestions from "./TestQuestions";
 import Box from "@material-ui/core/Box";
 import ProgressMobileStepper from "./ProgressMobileStepper";
+import store from "../../store";
 
 class TestQuestionsContainer extends Component {
   state = {
@@ -13,9 +14,13 @@ class TestQuestionsContainer extends Component {
     activeStep: 0
   };
   componentDidMount() {
+    const testId = store.getState().auth.id;
+    this.setState({
+      testId: testId
+    });
     // now we just hardcode testId for testing
     // for first question, answerId is null
-    this.props.response({ testId: 5, answerId: null });
+    this.props.response({ testId: 1, answerId: null });
   }
 
   submitAnswers() {

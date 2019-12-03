@@ -3,11 +3,13 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import logo from "../../images/codaisseur-logo-long.png";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth";
 import LoginFormContainer from "../Login/LoginFormContainer";
 
 class Instructions extends Component {
+
   state = {
     startInstructions:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nisi, pulvinar quis erat at, blandit iaculis nisl. In feugiat tincidunt ligula eget condimentum. Praesent nulla odio, iaculis eu tortor quis, rutrum posuere lorem. Proin eget arcu id mi pulvinar imperdiet. Fusce at ante vitae justo maximus accumsan. Suspendisse tempus at purus in molestie. Nunc eu magna condimentum, pulvinar lorem eu, tincidunt dui. Etiam laoreet faucibus nisi, quis viverra lacus sodales ac. Morbi ac dui a odio placerat iaculis. Quisque imperdiet massa quis hendrerit laoreet. Suspendisse molestie viverra dapibus.",
@@ -57,13 +59,11 @@ class Instructions extends Component {
           </Box>
           <div>
             <Box m={10} align="center">
-              <Button
-                variant="contained"
-                color="primary"
-                href="/admission-test"
-              >
+              <Link to={"/admission-test"}>
+              <Button variant="contained" color="primary">
                 Start test
               </Button>
+            </Link>
             </Box>
             <Box mt={5}></Box>
           </div>
@@ -78,3 +78,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { login })(Instructions);
+
