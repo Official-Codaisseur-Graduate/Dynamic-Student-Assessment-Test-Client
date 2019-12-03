@@ -6,6 +6,7 @@ import TestQuestions from "./TestQuestions";
 import Box from "@material-ui/core/Box";
 import ProgressMobileStepper from "./ProgressMobileStepper";
 import store from "../../store";
+import logo from "../../images/logo.png";
 
 class TestQuestionsContainer extends Component {
   state = {
@@ -45,25 +46,47 @@ class TestQuestionsContainer extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <Box m={10} align="center">
-          <TestQuestions question={this.props.question} />
-          <TestQuestionsAnswers
-            answers={this.props.question}
-            handleChange={this.handleChange}
-            selected={this.state.answerId}
-          />
-          <br />
-          <br />
-          <ProgressMobileStepper
-            handleNext={this.handleNext}
-            handleBack={this.handleBack}
-            activeStep={this.state.activeStep}
-          />
-        </Box>
-      </div>
-    );
+    const { activeStep } = this.state;
+
+    if (activeStep === 5) {
+      return (
+        <div>
+          <Box m={10} align="center">
+            <header>
+              <img
+                className="logo"
+                height="80px"
+                alt="app logo"
+                src={logo}
+              ></img>
+            </header>
+            <br />
+            <br />
+            You're done! Thanks for taking the test
+          </Box>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Box m={10} align="center">
+            <TestQuestions question={this.props.question} />
+            <TestQuestionsAnswers
+              answers={this.props.question}
+              handleChange={this.handleChange}
+              selected={this.state.answerId}
+            />
+            <br />
+            <br />
+            <ProgressMobileStepper
+              handleNext={this.handleNext}
+              handleBack={this.handleBack}
+              activeStep={this.state.activeStep}
+            />
+          </Box>
+        </div>
+      );
+    }
   }
 }
 
