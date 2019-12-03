@@ -5,7 +5,6 @@ import TestQuestionsAnswers from "./TestQuestionsAnswers";
 import TestQuestions from "./TestQuestions";
 import Box from "@material-ui/core/Box";
 import ProgressMobileStepper from "./ProgressMobileStepper";
-import store from "../../store";
 import logo from "../../images/logo.png";
 import LoginFormContainer from "../Login/LoginFormContainer";
 
@@ -63,8 +62,7 @@ class TestQuestionsContainer extends Component {
           </Box>
         </div>
       );
-    } else {
-    if (this.state.testId)
+    } else if (this.state.testId) {
       return (
         <div>
           <Box m={10} align="center">
@@ -84,8 +82,9 @@ class TestQuestionsContainer extends Component {
           </Box>
         </div>
       );
+    } else {
+      return <LoginFormContainer />;
     }
-    else return <LoginFormContainer />;
   }
 }
 
