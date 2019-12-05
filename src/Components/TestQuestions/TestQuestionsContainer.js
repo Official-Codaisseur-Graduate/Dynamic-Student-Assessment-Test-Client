@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { response, getHistory, loadPrevQuestion } from "../../actions/question";
+import { response } from "../../actions/question";
 import { connect } from "react-redux";
 import TestQuestionsAnswers from "./TestQuestionsAnswers";
 import TestQuestions from "./TestQuestions";
@@ -7,6 +7,7 @@ import Box from "@material-ui/core/Box";
 import ProgressMobileStepper from "./ProgressMobileStepper";
 import logo from "../../images/logo.png";
 import LoginFormContainer from "../Login/LoginFormContainer";
+import { Link } from "react-router-dom";
 import superagent from "superagent";
 
 class TestQuestionsContainer extends Component {
@@ -16,9 +17,9 @@ class TestQuestionsContainer extends Component {
     activeStep: 0,
     oldAnswerId: ""
   };
+
   componentDidMount = () => {
-    const { answerId, testId } = this.state;
-    this.props.response({ testId, answerId });
+    this.props.response({ testId: this.state.testId, answerId: null });
     // for first question, answerId is null
   };
 
@@ -28,8 +29,8 @@ class TestQuestionsContainer extends Component {
 
   handleChange = event => {
     this.setState({ answerId: event.target.value });
-    console.log("state", this.state);
   };
+
   handleNext = async () => {
     this.setState({ activeStep: this.state.activeStep + 1 });
     const { testId, answerId } = this.state;
@@ -47,26 +48,7 @@ class TestQuestionsContainer extends Component {
     }, 1000);
 
   };
-  // handleBack is not working,
-  // the button is there though --> see ProgressMobileStepper.js
-  handleBack = async () => {
-    await this.setState({ activeStep: this.state.activeStep - 1 });
-    //answerId from the state is what we just selected at the question before
-    const { answerId } = this.state;
-    const currentIndex = this.props.history.filter(answer => {
-      return answer.answerId === Number(answerId);
-    });
-    // const currentTestId = currentIndex.map(item => item.testId);
-    currentIndex.map(async item => {
-      await this.props.loadPrevQuestion(item.answerId);
-    });
 
-    // progress: able to go back to the previous question, but just this once :)
-    // only able to load that question for now
-
-    console.log("what did we find?: ", currentIndex);
-    console.log("back");
-  };
 
   sendScore = async () => {};
 
@@ -87,7 +69,9 @@ class TestQuestionsContainer extends Component {
             </header>
             <br />
             <br />
-            You're done! Thanks for taking the test
+            You're done! Thanks for taking the test.
+            <br />
+            You can check your results <Link to={`/results`}>here</Link>.
           </Box>
         </div>
       );
@@ -105,7 +89,6 @@ class TestQuestionsContainer extends Component {
             <br />
             <ProgressMobileStepper
               handleNext={this.handleNext}
-              handleBack={this.handleBack}
               activeStep={this.state.activeStep}
             />
           </Box>
@@ -121,14 +104,10 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     question: state.question,
-    answer: state.answer,
-    auth: state.auth,
-    history: state.history
+    auth: state.auth
   };
 }
 
 export default connect(mapStateToProps, {
-  response,
-  getHistory,
-  loadPrevQuestion
+  response
 })(TestQuestionsContainer);
