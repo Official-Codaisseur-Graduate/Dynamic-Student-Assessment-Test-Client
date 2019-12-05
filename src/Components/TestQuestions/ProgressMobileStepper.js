@@ -38,23 +38,6 @@ export default function ProgressMobileStepper(props) {
           )}
         </Button>
       }
-      ///backButton is not working
-      // --> needs an action implemented to handle this
-      /// See TestQuestionContainer.js for handleBack
-      backButton={
-        <Button
-          size="small"
-          onClick={props.handleBack}
-          disabled={activeStep === 0}
-        >
-          {theme.direction === "rtl" ? (
-            <KeyboardArrowRight />
-          ) : (
-            <KeyboardArrowLeft />
-          )}
-          Back
-        </Button>
-      }
     />
   );
 }
