@@ -8,12 +8,14 @@ import ProgressMobileStepper from "./ProgressMobileStepper";
 import logo from "../../images/logo.png";
 import LoginFormContainer from "../Login/LoginFormContainer";
 import { Link } from "react-router-dom";
+import superagent from "superagent";
 
 class TestQuestionsContainer extends Component {
   state = {
     testId: this.props.auth ? this.props.auth.id : null,
     answerId: null,
-    activeStep: 0
+    activeStep: 0,
+    oldAnswerId: ""
   };
 
   componentDidMount = () => {
@@ -32,8 +34,23 @@ class TestQuestionsContainer extends Component {
   handleNext = async () => {
     this.setState({ activeStep: this.state.activeStep + 1 });
     const { testId, answerId } = this.state;
+    
     await this.props.response({ testId, answerId });
+
+    const code = this.props.auth.code;
+    setTimeout(async () => {
+      if (this.state.activeStep === 5) {
+        await superagent.put(`http://localhost:4000/test/${code}`).send({
+          code: ""
+        });
+        await superagent.put(`http://localhost:4000/testscore/${testId}`);
+      }
+    }, 1000);
+
   };
+
+
+  sendScore = async () => {};
 
   render() {
     const { activeStep } = this.state;

@@ -12,6 +12,7 @@ export const response = ({ testId, answerId }) => (dispatch, getState) => {
     .post(`${baseUrl}/response?testId=${testId}&answerId=${answerId}`)
     .then(response => {
       dispatch(questionloaded(response.body));
+
       if (answerId !== null) {
         dispatch(getHistory({ testId }));
       }

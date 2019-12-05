@@ -6,10 +6,9 @@ import logo from "../../images/codaisseur-logo-long.png";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth";
-import LoginFormContainer from "../Login/LoginFormContainer";
+import { Redirect } from "react-router-dom";
 
 class Instructions extends Component {
-
   state = {
     startInstructions:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nisi, pulvinar quis erat at, blandit iaculis nisl. In feugiat tincidunt ligula eget condimentum. Praesent nulla odio, iaculis eu tortor quis, rutrum posuere lorem. Proin eget arcu id mi pulvinar imperdiet. Fusce at ante vitae justo maximus accumsan. Suspendisse tempus at purus in molestie. Nunc eu magna condimentum, pulvinar lorem eu, tincidunt dui. Etiam laoreet faucibus nisi, quis viverra lacus sodales ac. Morbi ac dui a odio placerat iaculis. Quisque imperdiet massa quis hendrerit laoreet. Suspendisse molestie viverra dapibus.",
@@ -17,7 +16,9 @@ class Instructions extends Component {
   };
 
   render() {
-    if (this.props.auth)
+    if (!this.props.auth) {
+      return <Redirect to="/login" />;
+    } else
       return (
         <div>
           <Box m={10}>
@@ -60,16 +61,15 @@ class Instructions extends Component {
           <div>
             <Box m={10} align="center">
               <Link to={"/admission-test"}>
-              <Button variant="contained" color="primary">
-                Start test
-              </Button>
-            </Link>
+                <Button variant="contained" color="primary">
+                  Start test
+                </Button>
+              </Link>
             </Box>
             <Box mt={5}></Box>
           </div>
         </div>
       );
-    else return <LoginFormContainer />;
   }
 }
 
@@ -78,4 +78,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { login })(Instructions);
-
