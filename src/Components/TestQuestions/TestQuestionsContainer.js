@@ -41,6 +41,7 @@ class TestQuestionsContainer extends Component {
         await superagent.put(`http://localhost:4000/test/${code}`).send({
           code: ""
         });
+        await superagent.put(`http://localhost:4000/testscore/${testId}`);
       }
     }, 1000);
   };

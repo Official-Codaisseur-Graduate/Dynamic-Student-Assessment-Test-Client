@@ -6,7 +6,6 @@ import logo from "../../images/codaisseur-logo-long.png";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth";
-import LoginFormContainer from "../Login/LoginFormContainer";
 import { Redirect } from "react-router-dom";
 
 class Instructions extends Component {
