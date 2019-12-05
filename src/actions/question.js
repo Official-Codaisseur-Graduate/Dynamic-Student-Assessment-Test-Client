@@ -12,6 +12,26 @@ export const response = ({ testId, answerId }) => (dispatch, getState) => {
     .post(`${baseUrl}/response?testId=${testId}&answerId=${answerId}`)
     .then(response => {
       dispatch(questionloaded(response.body));
+
+      if (answerId !== null) {
+        dispatch(getHistory({ testId }));
+      }
+    })
+
+    .catch(console.error);
+};
+
+export const HISTORY_LOADED = "HISTORY_LOADED";
+const historyLoaded = history => ({
+  type: HISTORY_LOADED,
+  payload: history
+});
+
+export const getHistory = ({ testId }) => (dispatch, getState) => {
+  request
+    .get(`${baseUrl}/history/${testId}`)
+    .then(response => {
+      dispatch(historyLoaded(response.body));
     })
     .catch(console.error);
 };

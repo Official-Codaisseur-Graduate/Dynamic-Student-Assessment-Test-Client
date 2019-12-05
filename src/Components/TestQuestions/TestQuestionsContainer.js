@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { response } from "../../actions/question";
+import { response, getHistory, loadPrevQuestion } from "../../actions/question";
 import { connect } from "react-redux";
 import TestQuestionsAnswers from "./TestQuestionsAnswers";
 import TestQuestions from "./TestQuestions";
@@ -33,8 +33,9 @@ class TestQuestionsContainer extends Component {
   handleNext = async () => {
     this.setState({ activeStep: this.state.activeStep + 1 });
     const { testId, answerId } = this.state;
-    this.props.response({ testId, answerId });
-    console.log("next", this.state.activeStep);
+    
+    await this.props.response({ testId, answerId });
+
     const code = this.props.auth.code;
     setTimeout(async () => {
       if (this.state.activeStep === 5) {
@@ -44,11 +45,26 @@ class TestQuestionsContainer extends Component {
         await superagent.put(`http://localhost:4000/testscore/${testId}`);
       }
     }, 1000);
+
   };
   // handleBack is not working,
   // the button is there though --> see ProgressMobileStepper.js
-  handleBack = () => {
-    this.setState({ activeStep: this.state.activeStep - 1 });
+  handleBack = async () => {
+    await this.setState({ activeStep: this.state.activeStep - 1 });
+    //answerId from the state is what we just selected at the question before
+    const { answerId } = this.state;
+    const currentIndex = this.props.history.filter(answer => {
+      return answer.answerId === Number(answerId);
+    });
+    // const currentTestId = currentIndex.map(item => item.testId);
+    currentIndex.map(async item => {
+      await this.props.loadPrevQuestion(item.answerId);
+    });
+
+    // progress: able to go back to the previous question, but just this once :)
+    // only able to load that question for now
+
+    console.log("what did we find?: ", currentIndex);
     console.log("back");
   };
 
@@ -106,8 +122,13 @@ function mapStateToProps(state) {
     user: state.user,
     question: state.question,
     answer: state.answer,
-    auth: state.auth
+    auth: state.auth,
+    history: state.history
   };
 }
 
-export default connect(mapStateToProps, { response })(TestQuestionsContainer);
+export default connect(mapStateToProps, {
+  response,
+  getHistory,
+  loadPrevQuestion
+})(TestQuestionsContainer);
