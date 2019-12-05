@@ -7,16 +7,18 @@ import Box from "@material-ui/core/Box";
 import ProgressMobileStepper from "./ProgressMobileStepper";
 import logo from "../../images/logo.png";
 import LoginFormContainer from "../Login/LoginFormContainer";
+import superagent from "superagent";
 
 class TestQuestionsContainer extends Component {
   state = {
     testId: this.props.auth ? this.props.auth.id : null,
     answerId: null,
-    activeStep: 0
+    activeStep: 0,
+    oldAnswerId: ""
   };
   componentDidMount = () => {
-    this.props.response({ testId: this.state.testId, answerId: null });
-
+    const { answerId, testId } = this.state;
+    this.props.response({ testId, answerId });
     // for first question, answerId is null
   };
 
@@ -31,9 +33,19 @@ class TestQuestionsContainer extends Component {
   handleNext = async () => {
     this.setState({ activeStep: this.state.activeStep + 1 });
     const { testId, answerId } = this.state;
+    
     await this.props.response({ testId, answerId });
-    // await this.props.getHistory({ testId });
-    console.log("next");
+
+    const code = this.props.auth.code;
+    setTimeout(async () => {
+      if (this.state.activeStep === 5) {
+        await superagent.put(`http://localhost:4000/test/${code}`).send({
+          code: ""
+        });
+        await superagent.put(`http://localhost:4000/testscore/${testId}`);
+      }
+    }, 1000);
+
   };
   // handleBack is not working,
   // the button is there though --> see ProgressMobileStepper.js
@@ -55,6 +67,8 @@ class TestQuestionsContainer extends Component {
     console.log("what did we find?: ", currentIndex);
     console.log("back");
   };
+
+  sendScore = async () => {};
 
   render() {
     const { activeStep } = this.state;
