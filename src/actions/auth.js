@@ -7,7 +7,7 @@ export const login = code => (dispatch, getState) => {
   request
     .get(`${baseUrl}/test/${code}`)
     .then(response => {
-      console.log("What do we get as a response?", response);
+      // console.log("What do we get as a response?", response);
       dispatch({
         type: LOGIN_SUCCES,
         payload: response.body
