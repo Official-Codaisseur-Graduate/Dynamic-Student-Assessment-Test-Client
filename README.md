@@ -53,6 +53,7 @@ This project was scaffolded using the create-react-app cli.
 **[The standard create-react-app docs can be found in here](./create-react-app-docs.md)**
 
 ### What is working:
+![](Peek 2019-12-09 12-21.gif)
 
 **Login**
 
