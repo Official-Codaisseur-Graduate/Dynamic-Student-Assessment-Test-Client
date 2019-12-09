@@ -55,28 +55,36 @@ This project was scaffolded using the create-react-app cli.
 ### What is working:
 
 **Login**
+
 - An interviewee can login with the code that is generated from the admin client (see the /students endpoint in that repo: here --> **[Admin Client](https://github.com/Official-Codaisseur-Graduate/Dynamic-Student-Assessment-Admin-Client)**
 
 **Instructions**
+
 - After loging in, the interviewee get redirected to /instructions where a default instructions (should be replaced with the real instructions at one point). Here the interviewee can click the button "start test" to get to the test.
 
 **Admission-test**
+
 - At /admission-test, the interviewee get the questions, choosing one out of four options and then clicking next to get to the next question
 - Question loaded (redux store)
-  - If an interviewee answers the question correct --> the initialLevel (seen in the action payload OR in the state 
-    question: initalLevel) will go up a level (from 0-1-2). 
+  - If an interviewee answers the question correct --> the initialLevel (seen in the action payload OR in the state
+    question: initalLevel) will go up a level (from 0-1-2).
 - In the payload you can see the answers (an array at the bottom of the payload), here you see which one is correct/incorrect.
+- After finishing the test (for now we only give 5 questions/test), the interviewee can navigate to results page to discuss the questions with the interviewer.
 
 ## To do:
 
 **Admission-test**
-- If an interviewee wants to go back and see his/her previous question, the back button is not working. Need to implement this with an action and a reducer... 
+
+- The results page could be styled with Material UI
+- Change the instructions
+- NOT to do: we don't recommend to have a back button in the test. An interviewee shouldn't be able to resubmit an answer, because it would mess up the dynamic leveling/scoring system of the test.
 
 ## Contributors
 
 #### Special thanks to:
 
-Class 30: 
+Class 30:
+
 - **[Ivana H](https://github.com/future-ruins)**
 - **[Gerson Lynch](https://github.com/gersly)**
 - **[Zeger de Vos](https://github.com/zegenerative)**
@@ -84,9 +92,17 @@ Class 30:
 - **[Lucas Pascholatti](https://github.com/LPascholatti)**
 - **[Andrea Cogo](https://github.com/anderara)**
 
-Class 31: 
+Class 31:
+
 - **[KumKum Singh](https://github.com/kumkumsingh)**
 - **[Yu Qi](https://github.com/qiyu1987)**
 - **[Stijn Blokker](https://github.com/stijnblokker)**
 - **[Evelina Wahlström](https://github.com/evelinawahlstrom)**
 - **[Sushmita BS](https://github.com/sushmitha-b-s)**
+
+Class 32:
+
+- **[Melissa 't Hart](https://github.com/MelissaDTH)**
+- **[Adel Tancsik](https://github.com/adeltancsik)**
+- **[Mouaz Tabanja](https://github.com/mtabanja)**
+- **[Veronica H. Stigen](https://github.com/vhs2708)**
